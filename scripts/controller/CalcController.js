@@ -19,17 +19,19 @@ class CalcController{
         
     }
 
-    initButtonsEvents(){
-        //pegando todos os botões (as duas camadas)
+    createMyEvents(eventName){
         let buttons = document.querySelectorAll("#buttons > g, #parts > g");
-        
-
-        buttons.forEach(btn=>{
-            btn.addEventListener('click', e=>{
-                console.log(e);
+        buttons.forEach((btn, index)=>{
+            btn.addEventListener(eventName, e=>{
+                console.log(btn.className.baseVal.replace("btn-", ""));
     
             });
         });
+    }
+
+    initButtonsEvents(){
+        //this.createMyEvents('click');
+        this.createMyEvents('drag');
         
     }
 
